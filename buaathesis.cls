@@ -66,10 +66,14 @@ The LaTeX template for thesis of BUAA]
 % 华文行楷、华文楷体同上
 \let\songti\relax
 \let\heiti\relax
-\setCJKfamilyfont{songti}[AutoFakeBold = {2.17}]{SimSun}
-\setCJKfamilyfont{heiti}[AutoFakeBold = {2.17}]{SimHei}
-\setCJKfamilyfont{hwxingkai}[AutoFakeBold = {2.17}]{STXingkai}
-\setCJKfamilyfont{hwkaiti}[AutoFakeBold = {2.17}]{STKaiti}
+% \setCJKfamilyfont{songti}[AutoFakeBold = {2.17}]{SimSun}
+% \setCJKfamilyfont{heiti}[AutoFakeBold = {2.17}]{SimHei}
+% \setCJKfamilyfont{hwxingkai}[AutoFakeBold = {2.17}]{STXingkai}
+% \setCJKfamilyfont{hwkaiti}[AutoFakeBold = {2.17}]{STKaiti}
+\setCJKfamilyfont{songti}[AutoFakeBold = {2.17}]{SimSun.ttc}
+\setCJKfamilyfont{heiti}[AutoFakeBold = {2.17}]{SimHei.ttf}
+\setCJKfamilyfont{hwxingkai}[AutoFakeBold = {2.17}]{STXingkai.TTF}
+\setCJKfamilyfont{hwkaiti}[AutoFakeBold = {2.17}]{STKaiti.TTF}
 \newcommand{\songti}{\CJKfamily{songti}}
 \newcommand{\heiti}{\CJKfamily{heiti}}
 \newcommand{\hwxingkai}{\CJKfamily{hwxingkai}}
