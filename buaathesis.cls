@@ -167,6 +167,67 @@ The LaTeX template for thesis of BUAA]
     \fancyhf{}
     \fancyfoot[C]{\thepage}
 }
+
+\fancypagestyle{mainmatternopage}{
+    \fancyhead{}
+    \fancyfoot{}
+    \ifbuaa@bachelor
+        \ifbuaa@ktreport
+            \fancyhead[C]{\zihao{-5}\hwkaiti
+                \buaa@degreehead 学位论文\buaa@ktclass\vspace{1.5mm}
+            }
+            \fancyfoot[C]{
+                \hspace{1.5mm}
+                \hwkaiti\zihao{-5}\buaa@university\buaa@school 学院
+                \hfill\hfill
+                \songti\zihao{-5}$\cdot$\quad\thepage\quad$\cdot$
+                \hspace{1.5mm}
+            }
+            % 本科开题报告有页脚线
+            \renewcommand{\footrulewidth}{0.4bp}
+        \else
+            \fancyhead[C]{
+                \includegraphics[width=37bp]{figure/buaamark.pdf}\hfill
+                \raisebox{2ex}{\heiti\zihao{4}\buaa@university 毕业设计(论文)}\hfill
+                \raisebox{2ex}{\phantom{\songti\zihao{5}第\quad\thepage\quad 页}}
+            }
+        \fi
+    \else
+        \ifbuaa@ktreport
+            % 研究生开题报告/文献综述，与本科生格式基本一致
+            \fancyhead[C]{\zihao{-5}\hwkaiti
+                \buaa@degreehead 学位论文\buaa@ktclass\vspace{1.5mm}
+            }
+            \fancyfoot[C]{
+                \hspace{1.5mm}
+                \hwkaiti\zihao{-5}\buaa@university\buaa@school 学院
+                \hfill\hfill
+                \songti\zihao{-5}$\cdot$\quad\thepage\quad$\cdot$
+                \hspace{1.5mm}
+            }
+            % 研究生开题报告有页脚线
+            \renewcommand{\footrulewidth}{0.4bp}
+        \else
+            \if@twoside
+                \fancyhead[CO]{\zihao{-5}\songti
+                    \buaa@university\buaa@degreehead 学位论文\vspace{1.5mm}
+                }
+                \fancyhead[CE]{\zihao{-5}\songti\leftmark\vspace{1.5mm}}
+            \else
+                \fancyhead[C]{\zihao{-5}\songti
+                    \ifthenelse{\isodd{\value{page}}}
+                        {\buaa@university\buaa@degreehead 学位论文}
+                        {\leftmark}
+                    \vspace{1.5mm}
+                }
+            \fi
+            \fancyfoot[C]{\zihao{5}\thepage}
+        \fi
+    \fi
+
+    \renewcommand{\headrulewidth}{0.5bp} % 页眉线宽度
+}
+
 \fancypagestyle{mainmatter}{
     \fancyhead{}
     \fancyfoot{}
@@ -413,8 +474,8 @@ The LaTeX template for thesis of BUAA]
 \RequirePackage{enumitem}
 \setlist{noitemsep}
 \setlist[1,2]{labelindent=\parindent}
-\setlist[enumerate,1]{label=\arabic*、}
-\setlist[enumerate,2]{label=（\arabic*）}
+\setlist[enumerate,1]{label=(\arabic*)}
+\setlist[enumerate,2]{label=\arabic*.}
 \setlist{
     topsep=0pt,
     itemsep=0pt,
@@ -675,7 +736,7 @@ The LaTeX template for thesis of BUAA]
                     \centerline{\zihao{-0}\heiti 毕业设计(论文)}
                     ~~\\
                     \vspace*{\stretch{4}}
-                    \begin{minipage}[h]{.8\textwidth}
+                    \begin{minipage}[h]{.85\textwidth}
                         \centering{\heiti\zihao{2}\buaa@thesistitle}
                     \end{minipage}
                     \vskip 20bp
@@ -689,14 +750,14 @@ The LaTeX template for thesis of BUAA]
                         \ifbuaa@twoteacher
                             \begin{tabular}{cc}
                                 学~~~院~~~名~~~称~~&\ulinecvcbc{\buaa@school 学院}\\[.4ex]
-                                专~~~业~~~名~~~称~~&\ulinecvcbc{\buaa@major 专业}\\[.4ex]
+                                专~~~业~~~名~~~称~~&\ulinecvcbc{\buaa@major }\\[.4ex]
                                 学~~~生~~~姓~~~名~~&\ulinecvcbc{\buaa@thesisauthor}\\[.4ex]
                                 指~~~导~~~教~~~师~~&\ulinecvcbc{\buaa@teacher \quad \buaa@subteacher}\\
                             \end{tabular}
                         \else
                             \begin{tabular}{cc}
                                 学~~~院~~~名~~~称~~&\ulinecvcbc{\buaa@school 学院}\\[.4ex]
-                                专~~~业~~~名~~~称~~&\ulinecvcbc{\buaa@major 专业}\\[.4ex]
+                                专~~~业~~~名~~~称~~&\ulinecvcbc{\buaa@major }\\[.4ex]
                                 学~~~生~~~姓~~~名~~&\ulinecvcbc{\buaa@thesisauthor}\\[.4ex]
                                 指~~~导~~~教~~~师~~&\ulinecvcbc{\buaa@teacher}\\
                             \end{tabular}
@@ -993,7 +1054,8 @@ The LaTeX template for thesis of BUAA]
 
 \newcommand{\announce}{%
     \clearemptydoublepage
-    \thispagestyle{empty}
+    % \thispagestyle{empty}
+    \thispagestyle{mainmatternopage}
     \vspace*{54bp}
     \centerline{\bf\zihao{-2}\songti 本人声明}
     \vskip 27bp
@@ -1005,7 +1067,7 @@ The LaTeX template for thesis of BUAA]
     \begin{tabular}{cl}
         作者：&\buaa@thesisauthor\\
         签字：&~~~~\\
-        时间：& \buaa@thesisdateyear~年~\buaa@thesisdatemonth ~月
+        时间：& \buaa@thesisdateyear~年~\buaa@thesisdatemonth ~月~9~日
     \end{tabular}
 }
 
