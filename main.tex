@@ -7,6 +7,24 @@
 \citestyle{numerical}
 % \citestyle{authoryear}
 
+%%% zyh defined commands
+\newcommand{\chref}[1]{第~\ref{#1}~章}
+\newcommand{\secref}[1]{第~\ref{#1}~节}
+\newcommand{\figref}[1]{图~\ref{#1}~}
+\newcommand{\tabref}[1]{表~\ref{#1}~}
+\newcommand{\equaref}[1]{公式~\eqref{#1}~}
+\newcommand{\algoref}[1]{伪代码~\ref{#1}~}
+\usepackage{float}
+\usepackage{makecell}
+\usepackage[plain]{algorithm}
+\usepackage{array}
+\usepackage{algpseudocode}
+
+\algnewcommand{\algorithmicinput}{\textbf{输入：}}
+\algnewcommand{\algorithmicoutput}{\textbf{输出：}}
+\algnewcommand\Input{\algorithmicinput}%
+\algnewcommand\Output{\algorithmicoutput}
+
 \begin{document}
 
 % 用户信息
