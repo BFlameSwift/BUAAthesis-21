@@ -11,6 +11,8 @@
 个人的修改是手动上传字体文件到config中,方便直接上传压缩包到overleaf,并修改编译器为XeLatex,可以直接在线编译,此处参考[issue](https://github.com/tuna/thuthesis/issues/563),
 并且修改了一些格式问题,不过格式的修改都是拷贝自[1821zyh学长](https://github.com/yhzhu99)
 
+目前使用\cite时,参考文献的引用仍与文本平齐。 可在最后将所有的\cite 替换为\upcite 即转换为上标
+
 ## 预览
 
 项目发布了最新版本的编译好的 [PDF 样例文档](https://github.com/BHOSC/BUAAthesis/releases/latest) 供大家预览：
