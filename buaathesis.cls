@@ -1069,7 +1069,7 @@
     \begin{tabular}{cl}
         作者： & \buaa@thesisauthor                                     \\
         签字： & ~~~~                                                   \\
-        时间： & \buaa@thesisdateyear~年~\buaa@thesisdatemonth ~月~9~日
+        时间： & \buaa@thesisdateyear~年~\buaa@thesisdatemonth ~月~2~日
     \end{tabular}
 }
 
