@@ -306,14 +306,15 @@
 \renewcommand{\tablename}{表}
 
 % 格式
+% 关于chapter的上下间距的修改，由于该模板与软院在2023毕设提供的模板在章节的上下间距过大，答辩时被指出。故修改。其中-1.16修改让章标题向上一些，具体数值是一点点微调的尽量肉眼看不出来
 \ctexset{
     chapter={
       format={\centering\zihao{3}\heiti},
       nameformat={},
       aftername={\quad},
       titleformat={},
-      beforeskip={-.5\baselineskip},
-      afterskip={\baselineskip},
+      beforeskip={-1.16\baselineskip},
+      afterskip={.5\baselineskip},
      },
     section={
       aftername={\quad},
